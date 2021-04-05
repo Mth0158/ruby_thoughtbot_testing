@@ -44,35 +44,38 @@ class Person
 end
 
 RSpec.describe Person do
-  person = Person.new({ first_name: 'John', last_name: 'Smith', middle_name: 'Junior' })
-  person_no_middle_name = Person.new({ first_name: 'John', last_name: 'Smith' })
-
   describe '#full_name' do
     it 'concatenates first name, middle name, and last name with spaces' do
+      person = Person.new({ first_name: 'John', last_name: 'Smith', middle_name: 'Junior' })
       expect(person.full_name).to eq('John Junior Smith')
     end
 
     it 'does not add extra spaces if middle name is missing' do
+      person_no_middle_name = Person.new({ first_name: 'John', last_name: 'Smith' })
       expect(person_no_middle_name.full_name).to eq('John Smith')
     end
   end
 
   describe '#full_name_with_middle_initial' do
     it 'concatenates first name, middle name as an initial in upcase, and last name with spaces' do
+      person = Person.new({ first_name: 'John', last_name: 'Smith', middle_name: 'Junior' })
       expect(person.full_name_with_middle_initial).to eq('John J Smith')
     end
 
     it 'does not add extra spaces if middle name is missing' do
+      person_no_middle_name = Person.new({ first_name: 'John', last_name: 'Smith' })
       expect(person_no_middle_name.full_name_with_middle_initial).to eq('John Smith')
     end
   end
 
   describe '#initials' do
     it 'concatenates first name, middle name, and last name with spaces as an initials in upcase' do
+      person = Person.new({ first_name: 'John', last_name: 'Smith', middle_name: 'Junior' })
       expect(person.initials).to eq('J J S')
     end
 
     it 'does not add extra spaces if middle name is missing' do
+      person_no_middle_name = Person.new({ first_name: 'John', last_name: 'Smith' })
       expect(person_no_middle_name.initials).to eq('J S')
     end
   end
